@@ -10,7 +10,7 @@ That means you can:
 
 **IMPORTANT**: structure of the config file was changed in the latest version. Therefore old .ini config files should be migrated and enviromnent values should be updated.
 
-### How does it work
+### How it works
 
 - a single GeoPackage file in a Mergin Maps project is treated as an equivalent of a database schema - both can contain
   multiple tables with data
@@ -19,6 +19,12 @@ That means you can:
 - the "base" schema contains the same data as the most recently known project version in Mergin Maps, and it is used
   to figure out whether there have been any changes in the database - if there were, they will be pushed
   to the appropriate GeoPackage in Mergin Maps project
+
+config.yaml attribute | concept | usage
+-----------------|---------|-------
+modified | Main Schema | Your data tables which will be updated when MerginMaps users push updates. You can edit these from other PG clients (e.g. QGIS) and your changes will be pushed to MerginMaps users.
+base | Base Schema | Synchronization tables managed by MerginMaps for reconciling changes before they get moved into or out of the Main Schema.
+
 
 ### Quick start
 
